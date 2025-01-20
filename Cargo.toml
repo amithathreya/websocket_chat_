@@ -1,0 +1,13 @@
+[package]
+name = "ws_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.22.1"
+futures= "0.3.31"
+futures-util = "0.3.31"
+serde = "1.0.217"
+sha1 = "0.10.6"
+tokio = {version = "1.43.0" , features=["full"]}
+tokio-tungstenite = "0.26.1" 
