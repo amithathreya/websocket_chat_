@@ -1,4 +1,5 @@
 mod websocket;
+mod config;
 use tokio::net::{TcpListener,TcpStream};
 use tokio_tungstenite::{accept_async, tungstenite::protocol::Message};
 use futures_util::{SinkExt, StreamExt};
@@ -6,7 +7,8 @@ use crate::websocket::handler::handle_client;
 #[tokio::main]
 async fn main() ->std::io::Result<()>
 {
-     let listener = TcpListener::bind("127.0.0.1:8080").await.expect("Error connecting");
+    let config = config::Config::load_file("config.toml").expect("Error loading config");
+     let listener = TcpListener::bind(config.ip_address).await.expect("Error connecting");
     println!("Listening to socket{:?}", listener);
 
     loop {
