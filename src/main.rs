@@ -26,7 +26,7 @@ async fn main() ->std::io::Result<()>
                 let (sock, addr) = listener.accept().await.expect("Error accepting socket");
                 println!("Connected to: {}", addr);
                 let tx = tx.clone();
-                let mut rx = tx.subscribe();
+                let rx = tx.subscribe();
 
                 tokio::spawn(async move {
                     if let Err(e) = handle_client(sock, tx, rx).await {
