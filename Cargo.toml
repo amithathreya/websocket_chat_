@@ -9,7 +9,16 @@ futures= "0.3.31"
 futures-util = "0.3.31"
 serde = {version = "1.0.217" , features = ["derive"]}
 sha1 = "0.10.6"
-tokio = {version = "1.43.0" , features= ["full"] }
-tokio-tungstenite = "0.26.1" 
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.17"
+url = "2.3"
 toml = "0.8.19"
 tracing = "0.1.41"
+
+[[bin]]
+name = "cli"
+path = "src/cli.rs"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
